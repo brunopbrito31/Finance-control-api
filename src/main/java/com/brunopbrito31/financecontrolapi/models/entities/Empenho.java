@@ -1,6 +1,7 @@
 package com.brunopbrito31.financecontrolapi.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,6 +37,7 @@ public class Empenho {
 
     private String observacao;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "despesa_id", referencedColumnName = "despesaId", nullable = false)
     private Despesa despesa;
